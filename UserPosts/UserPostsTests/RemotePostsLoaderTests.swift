@@ -73,8 +73,7 @@ final class RemotePostsLoaderTests: XCTestCase {
 
     func makeSUT() -> (RemotePostsLoader, HTTPClientSpy) {
         let client = HTTPClientSpy()
-        let endpointService = EndpointServiceMock()
-        let sut = RemotePostsLoader(client: client, endpointService: endpointService)
+        let sut = RemotePostsLoader(client: client, url: URL(string: "http://a-testUrl.com")!)
         return (sut, client)
     }
 
@@ -124,13 +123,6 @@ final class RemotePostsLoaderTests: XCTestCase {
                                            httpVersion: nil,
                                            headerFields: nil)!
             completions[index](.success(data, response))
-        }
-    }
-
-    class EndpointServiceMock: EndpointService {
-
-        func getURL(endpoint: UserPosts.Endpoint) -> URL {
-            return URL(string: "http://some-url.com")!
         }
     }
 }

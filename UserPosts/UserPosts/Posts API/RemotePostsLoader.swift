@@ -11,11 +11,11 @@ import Foundation
 public class RemotePostsLoader: UserPostsLoader {
 
     let client: HTTPClient
-    let endpointService: EndpointService
+    let url: URL
 
-    public init(client: HTTPClient, endpointService: EndpointService) {
+    public init(client: HTTPClient, url: URL) {
         self.client = client
-        self.endpointService = endpointService
+        self.url = url
     }
 
     public enum Error: Swift.Error {
@@ -26,9 +26,10 @@ public class RemotePostsLoader: UserPostsLoader {
     public typealias Result = PostLoadResult
 
     public func fetchUserPosts(userId: Int, completion: @escaping (Result) -> Void) {
-        let url = endpointService.getURL(endpoint: .userPosts(userId: userId))
+        let queryItem = URLQueryItem(name: "userId", value: "\(userId)")
+        let fetchURL = url.appending(queryItems: [queryItem])
 
-        client.get(from: url) { result in
+        client.get(from: fetchURL) { result in
             switch result {
             case .success(let data, let response):
                 do {
