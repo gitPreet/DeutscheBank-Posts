@@ -12,6 +12,8 @@
 		29973B452AAC550300626B8B /* UserPostsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B442AAC550300626B8B /* UserPostsLoader.swift */; };
 		29973B4F2AAC561300626B8B /* UserPosts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29973B352AAC467800626B8B /* UserPosts.framework */; };
 		29973B562AAC563E00626B8B /* RemotePostsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */; };
+		29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B572AAC586700626B8B /* RemotePostsLoader.swift */; };
+		29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B592AAC587700626B8B /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		29973B442AAC550300626B8B /* UserPostsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsLoader.swift; sourceTree = "<group>"; };
 		29973B4B2AAC561300626B8B /* UserPostsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserPostsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostsLoaderTests.swift; sourceTree = "<group>"; };
+		29973B572AAC586700626B8B /* RemotePostsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostsLoader.swift; sourceTree = "<group>"; };
+		29973B592AAC587700626B8B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 		29973B462AAC55F200626B8B /* Posts API */ = {
 			isa = PBXGroup;
 			children = (
+				29973B592AAC587700626B8B /* HTTPClient.swift */,
+				29973B572AAC586700626B8B /* RemotePostsLoader.swift */,
 			);
 			path = "Posts API";
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */,
 				29973B432AAC547F00626B8B /* UserPost.swift in Sources */,
+				29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */,
 				29973B452AAC550300626B8B /* UserPostsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

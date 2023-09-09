@@ -6,19 +6,7 @@
 //
 
 import XCTest
-
-protocol HTTPClient {
-    func get(from url: URL)
-}
-
-class RemotePostsLoader {
-
-    let client: HTTPClient
-
-    init(client: HTTPClient) {
-        self.client = client
-    }
-}
+import UserPosts
 
 final class RemotePostsLoaderTests: XCTestCase {
 
