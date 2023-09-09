@@ -32,6 +32,16 @@ final class RemotePostsLoaderTests: XCTestCase {
         }
     }
 
+    func test_remotePostsLoader_deliversError_on200HTTPResponseWithInvalidJSON() {
+        let (sut, client) = makeSUT()
+
+        // status code is 200, but HTTP response is invalid
+        expect(sut, toCompleteWith: .failure(RemotePostsLoader.Error.invalidData)) {
+            let invalidJSON = Data("invalid JSON".utf8)
+            client.complete(with: 200, data: invalidJSON)
+        }
+    }
+
     // MARK: Helpers
 
     func makeSUT() -> (RemotePostsLoader, HTTPClientSpy) {
@@ -79,6 +89,14 @@ final class RemotePostsLoaderTests: XCTestCase {
 
         func complete(with error: Error, at index: Int = 0) {
             completions[index](.failure(error))
+        }
+
+        func complete(with statusCode: Int, data: Data, at index: Int = 0) {
+            let response = HTTPURLResponse(url: requestedURLs[index],
+                                           statusCode: statusCode,
+                                           httpVersion: nil,
+                                           headerFields: nil)!
+            completions[index](.success(data, response))
         }
     }
 
