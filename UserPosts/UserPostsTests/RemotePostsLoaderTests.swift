@@ -42,6 +42,33 @@ final class RemotePostsLoaderTests: XCTestCase {
         }
     }
 
+    func test_remotePostsLoader_deliversUsersPosts_on200HTTPResponseWithValidJSON() {
+        let (sut, client) = makeSUT()
+
+        let post1 = UserPost(userId: 1234, id: 3, title: "title1", body: "body1")
+        let post2 = UserPost(userId: 1234, id: 3, title: "title2", body: "body2")
+
+        expect(sut, toCompleteWith: .success([post1, post2])) {
+            let post1JSON: [String: Any] = [
+                "userId": 1234,
+                "id": 3,
+                "title": "title1",
+                "body": "body1"
+            ]
+
+            let post2JSON: [String: Any] = [
+                "userId": 1234,
+                "id": 3,
+                "title": "title2",
+                "body": "body2"
+            ]
+
+            let postsJSON = [ post1JSON, post2JSON]
+            let data = try? JSONSerialization.data(withJSONObject: postsJSON)
+            client.complete(with: 200, data: data!)
+        }
+    }
+
     // MARK: Helpers
 
     func makeSUT() -> (RemotePostsLoader, HTTPClientSpy) {
