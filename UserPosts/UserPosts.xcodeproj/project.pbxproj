@@ -14,6 +14,8 @@
 		29973B562AAC563E00626B8B /* RemotePostsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */; };
 		29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B572AAC586700626B8B /* RemotePostsLoader.swift */; };
 		29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B592AAC587700626B8B /* HTTPClient.swift */; };
+		29973B5D2AAC61A800626B8B /* EndpointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B5C2AAC61A700626B8B /* EndpointService.swift */; };
+		29973B612AAC808A00626B8B /* UserPostsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B602AAC808A00626B8B /* UserPostsMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostsLoaderTests.swift; sourceTree = "<group>"; };
 		29973B572AAC586700626B8B /* RemotePostsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostsLoader.swift; sourceTree = "<group>"; };
 		29973B592AAC587700626B8B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		29973B5C2AAC61A700626B8B /* EndpointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointService.swift; sourceTree = "<group>"; };
+		29973B602AAC808A00626B8B /* UserPostsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,10 @@
 		29973B462AAC55F200626B8B /* Posts API */ = {
 			isa = PBXGroup;
 			children = (
+				29973B5C2AAC61A700626B8B /* EndpointService.swift */,
 				29973B592AAC587700626B8B /* HTTPClient.swift */,
 				29973B572AAC586700626B8B /* RemotePostsLoader.swift */,
+				29973B602AAC808A00626B8B /* UserPostsMapper.swift */,
 			);
 			path = "Posts API";
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 				29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */,
 				29973B432AAC547F00626B8B /* UserPost.swift in Sources */,
 				29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */,
+				29973B5D2AAC61A800626B8B /* EndpointService.swift in Sources */,
 				29973B452AAC550300626B8B /* UserPostsLoader.swift in Sources */,
+				29973B612AAC808A00626B8B /* UserPostsMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
