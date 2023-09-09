@@ -18,12 +18,14 @@ public class RemotePostsLoader: UserPostsLoader {
         self.endpointService = endpointService
     }
 
-    public enum RemotePostsLoaderError: Swift.Error {
+    public enum Error: Swift.Error {
         case connectivity
         case invalidData
     }
 
-    func fetchUserPosts(userId: Int, completion: @escaping (Result<[UserPost], Error>) -> Void) {
+    public typealias Result = PostLoadResult
+
+    public func fetchUserPosts(userId: Int, completion: @escaping (Result) -> Void) {
         let url = endpointService.getURL(endpoint: .userPosts(userId: userId))
 
         client.get(from: url) { result in
@@ -34,11 +36,11 @@ public class RemotePostsLoader: UserPostsLoader {
                     completion(.success(remoteUserPosts.toModels()))
                     
                 } catch {
-                    completion(.failure(RemotePostsLoaderError.invalidData))
+                    completion(.failure(RemotePostsLoader.Error.invalidData))
                 }
 
             case .failure:
-                completion(.failure(RemotePostsLoaderError.connectivity))
+                completion(.failure(RemotePostsLoader.Error.connectivity))
             }
         }
     }

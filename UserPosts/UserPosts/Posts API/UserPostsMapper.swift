@@ -18,7 +18,7 @@ internal final class UserPostsMapper {
 
     static func map(data: Data, response: HTTPURLResponse) throws -> [RemoteUserPost] {
         guard response.statusCode == 200, let posts = try? JSONDecoder().decode([RemoteUserPost].self, from: data) else {
-            throw RemotePostsLoader.RemotePostsLoaderError.invalidData
+            throw RemotePostsLoader.Error.invalidData
         }
         return posts
     }

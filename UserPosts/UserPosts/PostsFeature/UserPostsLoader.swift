@@ -7,6 +7,11 @@
 
 import Foundation
 
+public enum PostLoadResult {
+    case success([UserPost])
+    case failure(Error)
+}
+
 protocol UserPostsLoader {
-    func fetchUserPosts(userId: Int, completion: @escaping (Result<[UserPost], Error>) -> Void)
+    func fetchUserPosts(userId: Int, completion: @escaping (PostLoadResult) -> Void)
 }
