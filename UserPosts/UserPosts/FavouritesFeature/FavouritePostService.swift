@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FavouritePostResult {
+public enum FavouritePostResult {
     case success([UserPost])
     case failure(Error)
 }

@@ -7,28 +7,28 @@
 
 import Foundation
 
-class LocalFavouritePostService: FavouritePostService {
+public class LocalFavouritePostService: FavouritePostService {
 
     let store: UserPostStore
 
-    init(store: UserPostStore) {
+    public init(store: UserPostStore) {
         self.store = store
     }
 
-    func favouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void) {
+    public func favouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void) {
 
         store.insert(post: post.toLocal()) { error in
             completion(error)
         }
     }
     
-    func unfavouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void) {
+    public func unfavouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void) {
         store.delete(post: post.toLocal()) { error in
             completion(error)
         }
     }
     
-    func getAllFavouritePosts(completion: @escaping (FavouritePostResult) -> Void) {
+    public func getAllFavouritePosts(completion: @escaping (FavouritePostResult) -> Void) {
         store.retrieveFavouritePosts { result in
             switch result {
             case .empty: completion(.success([]))
@@ -39,7 +39,7 @@ class LocalFavouritePostService: FavouritePostService {
     }
 }
 
-private extension UserPost {
+public extension UserPost {
 
     func toLocal() -> LocalUserPost {
         return LocalUserPost(userId: self.userId, id: self.id, title: self.title, body: self.body)

@@ -13,7 +13,7 @@ public enum RetrieveFavouritePostsResult {
     case failure(Error)
 }
 
-protocol UserPostStore {
+public protocol UserPostStore {
 
     typealias InsertionCompletion = (Error?) -> Void
     typealias DeletionCompletion = (Error?) -> Void

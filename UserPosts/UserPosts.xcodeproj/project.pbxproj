@@ -19,6 +19,7 @@
 		29BD604C2AADA8A200EA65D9 /* LocalFavouritePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */; };
 		29BD604E2AADAF0F00EA65D9 /* UserPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */; };
 		29BD60502AADC3AF00EA65D9 /* LocalUserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604F2AADC3AF00EA65D9 /* LocalUserPost.swift */; };
+		29BD60542AADD7FE00EA65D9 /* LocalFavouritePostServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD60532AADD7FE00EA65D9 /* LocalFavouritePostServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFavouritePostService.swift; sourceTree = "<group>"; };
 		29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostStore.swift; sourceTree = "<group>"; };
 		29BD604F2AADC3AF00EA65D9 /* LocalUserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserPost.swift; sourceTree = "<group>"; };
+		29BD60532AADD7FE00EA65D9 /* LocalFavouritePostServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFavouritePostServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */,
+				29BD60532AADD7FE00EA65D9 /* LocalFavouritePostServiceTests.swift */,
 			);
 			path = UserPostsTests;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29973B562AAC563E00626B8B /* RemotePostsLoaderTests.swift in Sources */,
+				29BD60542AADD7FE00EA65D9 /* LocalFavouritePostServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocalUserPost {
+public struct LocalUserPost: Equatable {
     public let userId: Int
     public let id: Int
     public let title: String
