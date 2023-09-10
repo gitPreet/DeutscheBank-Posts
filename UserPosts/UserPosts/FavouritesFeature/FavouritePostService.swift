@@ -14,9 +14,9 @@ enum FavouritePostResult {
 
 protocol FavouritePostService {
 
-    func favouriteUserPost(post: UserPost, completion: @escaping () -> Void)
+    func favouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void)
 
-    func unfavouriteUserPost(post: UserPost, completion: @escaping () -> Void)
+    func unfavouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void)
 
     func getAllFavouritePosts(completion: @escaping (FavouritePostResult) -> Void)
 }

@@ -9,7 +9,7 @@ import Foundation
 
 public enum RetrieveFavouritePostsResult {
     case empty
-    case found(feed: [UserPost])
+    case found(posts: [UserPost])
     case failure(Error)
 }
 
