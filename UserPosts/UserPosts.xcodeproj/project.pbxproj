@@ -15,6 +15,9 @@
 		29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B572AAC586700626B8B /* RemotePostsLoader.swift */; };
 		29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B592AAC587700626B8B /* HTTPClient.swift */; };
 		29973B612AAC808A00626B8B /* UserPostsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29973B602AAC808A00626B8B /* UserPostsMapper.swift */; };
+		29BD60492AAD81B000EA65D9 /* FavouritePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD60482AAD81B000EA65D9 /* FavouritePostService.swift */; };
+		29BD604C2AADA8A200EA65D9 /* LocalFavouritePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */; };
+		29BD604E2AADAF0F00EA65D9 /* UserPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		29973B572AAC586700626B8B /* RemotePostsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostsLoader.swift; sourceTree = "<group>"; };
 		29973B592AAC587700626B8B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		29973B602AAC808A00626B8B /* UserPostsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsMapper.swift; sourceTree = "<group>"; };
+		29BD60482AAD81B000EA65D9 /* FavouritePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostService.swift; sourceTree = "<group>"; };
+		29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFavouritePostService.swift; sourceTree = "<group>"; };
+		29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				29973B3F2AAC469300626B8B /* PostsFeature */,
+				29BD60472AAD819900EA65D9 /* FavouritesFeature */,
 				29973B462AAC55F200626B8B /* Posts API */,
+				29BD604A2AADA88000EA65D9 /* Posts Cache */,
 				29973B382AAC467800626B8B /* UserPosts.h */,
 			);
 			path = UserPosts;
@@ -111,6 +119,23 @@
 				29973B552AAC563E00626B8B /* RemotePostsLoaderTests.swift */,
 			);
 			path = UserPostsTests;
+			sourceTree = "<group>";
+		};
+		29BD60472AAD819900EA65D9 /* FavouritesFeature */ = {
+			isa = PBXGroup;
+			children = (
+				29BD60482AAD81B000EA65D9 /* FavouritePostService.swift */,
+			);
+			path = FavouritesFeature;
+			sourceTree = "<group>";
+		};
+		29BD604A2AADA88000EA65D9 /* Posts Cache */ = {
+			isa = PBXGroup;
+			children = (
+				29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */,
+				29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */,
+			);
+			path = "Posts Cache";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,9 +249,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29BD604E2AADAF0F00EA65D9 /* UserPostStore.swift in Sources */,
+				29BD604C2AADA8A200EA65D9 /* LocalFavouritePostService.swift in Sources */,
 				29973B582AAC586700626B8B /* RemotePostsLoader.swift in Sources */,
 				29973B432AAC547F00626B8B /* UserPost.swift in Sources */,
 				29973B5A2AAC587700626B8B /* HTTPClient.swift in Sources */,
+				29BD60492AAD81B000EA65D9 /* FavouritePostService.swift in Sources */,
 				29973B452AAC550300626B8B /* UserPostsLoader.swift in Sources */,
 				29973B612AAC808A00626B8B /* UserPostsMapper.swift in Sources */,
 			);
