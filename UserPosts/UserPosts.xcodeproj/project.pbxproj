@@ -18,6 +18,7 @@
 		29BD60492AAD81B000EA65D9 /* FavouritePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD60482AAD81B000EA65D9 /* FavouritePostService.swift */; };
 		29BD604C2AADA8A200EA65D9 /* LocalFavouritePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */; };
 		29BD604E2AADAF0F00EA65D9 /* UserPostStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */; };
+		29BD60502AADC3AF00EA65D9 /* LocalUserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD604F2AADC3AF00EA65D9 /* LocalUserPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		29BD60482AAD81B000EA65D9 /* FavouritePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostService.swift; sourceTree = "<group>"; };
 		29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFavouritePostService.swift; sourceTree = "<group>"; };
 		29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostStore.swift; sourceTree = "<group>"; };
+		29BD604F2AADC3AF00EA65D9 /* LocalUserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				29BD604D2AADAF0F00EA65D9 /* UserPostStore.swift */,
 				29BD604B2AADA8A200EA65D9 /* LocalFavouritePostService.swift */,
+				29BD604F2AADC3AF00EA65D9 /* LocalUserPost.swift */,
 			);
 			path = "Posts Cache";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				29BD60492AAD81B000EA65D9 /* FavouritePostService.swift in Sources */,
 				29973B452AAC550300626B8B /* UserPostsLoader.swift in Sources */,
 				29973B612AAC808A00626B8B /* UserPostsMapper.swift in Sources */,
+				29BD60502AADC3AF00EA65D9 /* LocalUserPost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

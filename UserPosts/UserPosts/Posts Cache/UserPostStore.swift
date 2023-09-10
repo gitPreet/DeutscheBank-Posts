@@ -9,7 +9,7 @@ import Foundation
 
 public enum RetrieveFavouritePostsResult {
     case empty
-    case found(posts: [UserPost])
+    case found(posts: [LocalUserPost])
     case failure(Error)
 }
 
@@ -19,9 +19,9 @@ protocol UserPostStore {
     typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveFavouritePostsResult) -> Void
 
-    func insert(post: UserPost, completion: @escaping InsertionCompletion)
+    func insert(post: LocalUserPost, completion: @escaping InsertionCompletion)
 
-    func delete(post: UserPost, completion: @escaping DeletionCompletion)
+    func delete(post: LocalUserPost, completion: @escaping DeletionCompletion)
 
     func retrieveFavouritePosts(completion: @escaping RetrievalCompletion)
 }
