@@ -27,8 +27,9 @@ final class LocalFavouritePostServiceTests: XCTestCase {
             expecation.fulfill()
         }
 
-        store.completeRetrievalWithError(error: storeError)
         wait(for: [expecation], timeout: 1.0)
+        print("After wait")
+        store.completeRetrievalWithError(error: storeError)
     }
 
     func test_localFavouritePostService_returnsEmptyArray_whenThereAreNoFavouritePosts() {
