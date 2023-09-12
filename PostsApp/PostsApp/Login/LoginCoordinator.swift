@@ -17,7 +17,7 @@ final class LoginCoordinator {
     }
 
     func start() {
-        let loginVC = LoginViewController.instantiate()
+        let loginVC = LoginViewController.instantiate(from: .main)
         loginVC.onLogin = { (userId) in
             
         }

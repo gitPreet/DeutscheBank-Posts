@@ -16,6 +16,12 @@
 		290426AD2AAF3A8F002042E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290426AC2AAF3A8F002042E7 /* LoginViewController.swift */; };
 		290426B32AAF5D58002042E7 /* Storyboard+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290426B22AAF5D58002042E7 /* Storyboard+App.swift */; };
 		290426B52AAF607E002042E7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290426B42AAF607E002042E7 /* AppCoordinator.swift */; };
+		29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF72AB09CF300D70800 /* PostsListViewController.swift */; };
+		29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF92AB09D1700D70800 /* PostCell.swift */; };
+		29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */; };
+		29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */; };
+		29947B022AB09DFC00D70800 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29947B012AB09DFC00D70800 /* Posts.storyboard */; };
+		29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		290426AC2AAF3A8F002042E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		290426B22AAF5D58002042E7 /* Storyboard+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+App.swift"; sourceTree = "<group>"; };
 		290426B42AAF607E002042E7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		29947AF72AB09CF300D70800 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
+		29947AF92AB09D1700D70800 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostsViewController.swift; sourceTree = "<group>"; };
+		29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCoordinator.swift; sourceTree = "<group>"; };
+		29947B012AB09DFC00D70800 /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
+		29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+App.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +74,10 @@
 		290426922AAF3422002042E7 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
-				290426B12AAF5D40002042E7 /* Utilities */,
 				290426AE2AAF556C002042E7 /* Application */,
+				290426B12AAF5D40002042E7 /* Utilities */,
 				290426A72AAF3555002042E7 /* Login */,
+				29947AF62AB095EB00D70800 /* Posts */,
 				290426992AAF3422002042E7 /* Main.storyboard */,
 				2904269C2AAF3423002042E7 /* Assets.xcassets */,
 				2904269E2AAF3423002042E7 /* LaunchScreen.storyboard */,
@@ -96,8 +109,37 @@
 			isa = PBXGroup;
 			children = (
 				290426B22AAF5D58002042E7 /* Storyboard+App.swift */,
+				29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		29947AF62AB095EB00D70800 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				29947B012AB09DFC00D70800 /* Posts.storyboard */,
+				29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */,
+				29947AF92AB09D1700D70800 /* PostCell.swift */,
+				29947AFB2AB09D2600D70800 /* All Posts */,
+				29947AFC2AB09D3500D70800 /* Favourite Posts */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		29947AFB2AB09D2600D70800 /* All Posts */ = {
+			isa = PBXGroup;
+			children = (
+				29947AF72AB09CF300D70800 /* PostsListViewController.swift */,
+			);
+			path = "All Posts";
+			sourceTree = "<group>";
+		};
+		29947AFC2AB09D3500D70800 /* Favourite Posts */ = {
+			isa = PBXGroup;
+			children = (
+				29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */,
+			);
+			path = "Favourite Posts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29947B022AB09DFC00D70800 /* Posts.storyboard in Resources */,
 				290426A02AAF3423002042E7 /* LaunchScreen.storyboard in Resources */,
 				2904269D2AAF3423002042E7 /* Assets.xcassets in Resources */,
 				2904269B2AAF3422002042E7 /* Main.storyboard in Resources */,
@@ -175,8 +218,13 @@
 				290426AD2AAF3A8F002042E7 /* LoginViewController.swift in Sources */,
 				290426A92AAF3A63002042E7 /* LoginCoordinator.swift in Sources */,
 				290426942AAF3422002042E7 /* AppDelegate.swift in Sources */,
+				29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */,
 				290426962AAF3422002042E7 /* SceneDelegate.swift in Sources */,
+				29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */,
 				290426B32AAF5D58002042E7 /* Storyboard+App.swift in Sources */,
+				29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */,
+				29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */,
+				29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

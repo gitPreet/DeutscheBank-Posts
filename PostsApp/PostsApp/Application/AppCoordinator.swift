@@ -17,7 +17,10 @@ final class AppCoordinator {
     }
 
     func start() {
-        let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-        loginCoordinator.start()
+//        let loginCoordinator = LoginCoordinator(navigationController: navigationController)
+//        loginCoordinator.start()
+        
+        let postCoordinator = PostsCoordinator(navigationController: navigationController)
+        postCoordinator.start()
     }
 }
