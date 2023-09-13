@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="User Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-sR-Rar">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Id" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bgc-sR-Rar">
                                 <rect key="frame" x="50" y="313" width="293" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="293" id="aW1-ZB-T4p"/>
@@ -39,16 +38,24 @@
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C6K-II-Stp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your User Id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccn-ny-p8U">
+                                <rect key="frame" x="69.000000000000014" y="260.66666666666669" width="255.33333333333337" height="27.333333333333314"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kjQ-wQ-lPh" firstAttribute="trailing" secondItem="Bgc-sR-Rar" secondAttribute="trailing" id="13r-Uc-VYJ"/>
+                            <constraint firstItem="ccn-ny-p8U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8Yb-Z9-MQJ"/>
                             <constraint firstItem="Bgc-sR-Rar" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-100" id="ChZ-4j-Flm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bgc-sR-Rar" secondAttribute="trailing" constant="50" id="Ib3-dP-8vu"/>
                             <constraint firstItem="kjQ-wQ-lPh" firstAttribute="leading" secondItem="Bgc-sR-Rar" secondAttribute="leading" id="JrZ-FF-XQ7"/>
                             <constraint firstItem="Bgc-sR-Rar" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="SYi-NI-6gR"/>
                             <constraint firstItem="Bgc-sR-Rar" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nbM-Pq-5XA"/>
+                            <constraint firstItem="Bgc-sR-Rar" firstAttribute="top" secondItem="ccn-ny-p8U" secondAttribute="bottom" constant="25" id="shM-Ag-fUo"/>
                             <constraint firstItem="kjQ-wQ-lPh" firstAttribute="top" secondItem="Bgc-sR-Rar" secondAttribute="bottom" constant="20" id="yom-eI-9Tv"/>
                         </constraints>
                     </view>
@@ -62,9 +69,4 @@
             <point key="canvasLocation" x="-8.3969465648854964" y="3.5211267605633805"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
