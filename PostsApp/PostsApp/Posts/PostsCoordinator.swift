@@ -7,22 +7,25 @@
 
 import Foundation
 import UIKit
+import UserPosts
 
 final class PostsCoordinator: Coordinator {
 
     let navigationController: UINavigationController
+    let postsLoader: UserPostsLoader
+    let userService: UserService
 
     var showLoginScreen: (() -> Void)?
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, postsLoader: UserPostsLoader, userService: UserService) {
         self.navigationController = navigationController
+        self.postsLoader = postsLoader
+        self.userService = userService
     }
 
     func start() {
 
-        let postVC = PostsListViewController.instantiate(from: .posts)
-        postVC.tabBarItem.title = "All Posts"
-        postVC.tabBarItem.image = UIImage(systemName: "newspaper")
+        let postVC = makePostListViewController()
 
         let favouriteVC = FavouritePostsViewController.instantiate(from: .posts)
         favouriteVC.tabBarItem.title = "Favourite Posts"
@@ -36,6 +39,15 @@ final class PostsCoordinator: Coordinator {
         tabBarController.title = "My Posts"
 
         navigationController.setViewControllers([tabBarController], animated: true)
+    }
+
+    private func makePostListViewController() -> PostsListViewController {
+        let postVC = PostsListViewController.instantiate(from: .posts)
+        let postVM = PostsViewModel(postsLoader: postsLoader, userService: userService)
+        postVC.viewModel = postVM
+        postVC.tabBarItem.title = "All Posts"
+        postVC.tabBarItem.image = UIImage(systemName: "newspaper")
+        return postVC
     }
 
     @objc func logoutButtonTapped() {

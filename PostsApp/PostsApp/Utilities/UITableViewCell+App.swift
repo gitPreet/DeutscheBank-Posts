@@ -10,6 +10,10 @@ import UIKit
 
 extension UITableViewCell {
 
+    static var nibName: String {
+        String(describing: self)
+    }
+
     static var reuseIdentifier: String {
         String(describing: self)
     }

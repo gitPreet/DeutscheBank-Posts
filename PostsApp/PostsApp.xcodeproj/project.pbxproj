@@ -23,7 +23,27 @@
 		29947B022AB09DFC00D70800 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29947B012AB09DFC00D70800 /* Posts.storyboard */; };
 		29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */; };
 		29CC7E452AB1E249006E2E90 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29CC7E442AB1E249006E2E90 /* PostCell.xib */; };
+		29FAABB82AB1E96E006C6498 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAABB72AB1E96E006C6498 /* URLSessionHTTPClient.swift */; };
+		29FAABBB2AB1E988006C6498 /* UserPosts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FAABBA2AB1E988006C6498 /* UserPosts.framework */; };
+		29FAABBC2AB1E988006C6498 /* UserPosts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 29FAABBA2AB1E988006C6498 /* UserPosts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		29FAABBF2AB1EB11006C6498 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAABBE2AB1EB11006C6498 /* PostViewModel.swift */; };
+		29FAABC12AB1F159006C6498 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAABC02AB1F159006C6498 /* PostListViewModel.swift */; };
+		29FAABC52AB209AE006C6498 /* UserServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAABC42AB209AE006C6498 /* UserServiceAdapter.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		29FAABBD2AB1E988006C6498 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				29FAABBC2AB1E988006C6498 /* UserPosts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		290426902AAF3422002042E7 /* PostsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +64,11 @@
 		29947B012AB09DFC00D70800 /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
 		29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+App.swift"; sourceTree = "<group>"; };
 		29CC7E442AB1E249006E2E90 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		29FAABB72AB1E96E006C6498 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		29FAABBA2AB1E988006C6498 /* UserPosts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UserPosts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FAABBE2AB1EB11006C6498 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		29FAABC02AB1F159006C6498 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		29FAABC42AB209AE006C6498 /* UserServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29FAABBB2AB1E988006C6498 /* UserPosts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +88,7 @@
 			children = (
 				290426922AAF3422002042E7 /* PostsApp */,
 				290426912AAF3422002042E7 /* Products */,
+				29FAABB92AB1E988006C6498 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				290426AE2AAF556C002042E7 /* Application */,
+				29FAABC32AB2099C006C6498 /* Adapters */,
 				290426B12AAF5D40002042E7 /* Utilities */,
 				290426A72AAF3555002042E7 /* Login */,
 				29947AF62AB095EB00D70800 /* Posts */,
+				29FAABB62AB1E957006C6498 /* Infrastructure */,
 				290426992AAF3422002042E7 /* Main.storyboard */,
 				2904269C2AAF3423002042E7 /* Assets.xcassets */,
 				2904269E2AAF3423002042E7 /* LaunchScreen.storyboard */,
@@ -133,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				29947AF72AB09CF300D70800 /* PostsListViewController.swift */,
+				29FAABBE2AB1EB11006C6498 /* PostViewModel.swift */,
+				29FAABC02AB1F159006C6498 /* PostListViewModel.swift */,
 			);
 			path = "All Posts";
 			sourceTree = "<group>";
@@ -145,6 +176,30 @@
 			path = "Favourite Posts";
 			sourceTree = "<group>";
 		};
+		29FAABB62AB1E957006C6498 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				29FAABB72AB1E96E006C6498 /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		29FAABB92AB1E988006C6498 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29FAABBA2AB1E988006C6498 /* UserPosts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29FAABC32AB2099C006C6498 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				29FAABC42AB209AE006C6498 /* UserServiceAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +210,7 @@
 				2904268C2AAF3422002042E7 /* Sources */,
 				2904268D2AAF3422002042E7 /* Frameworks */,
 				2904268E2AAF3422002042E7 /* Resources */,
+				29FAABBD2AB1E988006C6498 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,17 +274,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29FAABC12AB1F159006C6498 /* PostListViewModel.swift in Sources */,
+				29FAABBF2AB1EB11006C6498 /* PostViewModel.swift in Sources */,
 				290426B52AAF607E002042E7 /* AppCoordinator.swift in Sources */,
 				290426AD2AAF3A8F002042E7 /* LoginViewController.swift in Sources */,
 				290426A92AAF3A63002042E7 /* LoginCoordinator.swift in Sources */,
 				290426942AAF3422002042E7 /* AppDelegate.swift in Sources */,
 				29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */,
 				290426962AAF3422002042E7 /* SceneDelegate.swift in Sources */,
+				29FAABC52AB209AE006C6498 /* UserServiceAdapter.swift in Sources */,
 				29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */,
 				290426B32AAF5D58002042E7 /* Storyboard+App.swift in Sources */,
 				29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */,
 				29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */,
 				29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */,
+				29FAABB82AB1E96E006C6498 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

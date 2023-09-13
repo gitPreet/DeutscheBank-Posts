@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import UserPosts
 
 public protocol Coordinator: AnyObject {
     func start()
@@ -36,11 +37,7 @@ final class AppCoordinator: Coordinator {
     }
 
     func showUserPosts(userId: Int) {
-        let postsCoordinator = PostsCoordinator(navigationController: navigationController)
-        postsCoordinator.showLoginScreen = { [weak self, weak postsCoordinator] in
-            self?.showLoginScreen()
-            self?.remove(coordinator: postsCoordinator!)
-        }
+        let postsCoordinator = makePostsCoordinator(userId: userId)
         childCoordinators.append(postsCoordinator)
         postsCoordinator.start()
     }
@@ -49,5 +46,21 @@ final class AppCoordinator: Coordinator {
         if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
             childCoordinators.remove(at: index)
         }
+    }
+}
+
+extension AppCoordinator {
+
+    private func makePostsCoordinator(userId: Int) -> PostsCoordinator {
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+        let remotePostsLoader = RemotePostsLoader(client: URLSessionHTTPClient(), url: url)
+        let postsCoordinator = PostsCoordinator(navigationController: navigationController,
+                                                postsLoader: remotePostsLoader,
+                                                userService: UserServiceAdapter(userId: userId))
+        postsCoordinator.showLoginScreen = { [weak self, weak postsCoordinator] in
+            self?.showLoginScreen()
+            self?.remove(coordinator: postsCoordinator!)
+        }
+        return postsCoordinator
     }
 }

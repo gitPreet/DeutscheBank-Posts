@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKc-Zq-Gk5">
-                        <rect key="frame" x="15.000000000000004" y="15" width="41.333333333333343" height="20.333333333333329"/>
+                        <rect key="frame" x="15" y="15" width="307" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="O3C-9v-JQ3" firstAttribute="leading" secondItem="zKc-Zq-Gk5" secondAttribute="trailing" constant="285.66666666666663" id="6Uw-7M-0ma"/>
+                    <constraint firstItem="O3C-9v-JQ3" firstAttribute="leading" secondItem="zKc-Zq-Gk5" secondAttribute="trailing" constant="20" id="6Uw-7M-0ma"/>
                     <constraint firstAttribute="trailing" secondItem="VtN-dj-bz3" secondAttribute="trailing" constant="15" id="Bpq-L8-iQf"/>
                     <constraint firstAttribute="trailing" secondItem="O3C-9v-JQ3" secondAttribute="trailing" constant="15" id="Kjy-0A-3f6"/>
                     <constraint firstItem="zKc-Zq-Gk5" firstAttribute="top" secondItem="8W4-CX-RVu" secondAttribute="top" constant="15" id="LnF-WI-F4f"/>

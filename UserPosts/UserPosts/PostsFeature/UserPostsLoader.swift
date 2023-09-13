@@ -12,6 +12,10 @@ public enum PostLoadResult {
     case failure(Error)
 }
 
-protocol UserPostsLoader {
+public protocol UserPostsLoader {
     func fetchUserPosts(userId: Int, completion: @escaping (PostLoadResult) -> Void)
+}
+
+public protocol UserService {
+    var userId: Int { get }
 }
