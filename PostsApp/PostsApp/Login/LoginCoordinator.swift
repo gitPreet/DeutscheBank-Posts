@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
-final class LoginCoordinator {
+final class LoginCoordinator: Coordinator {
 
     let navigationController: UINavigationController
+
+    var showPosts: ((Int) -> Void)?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -18,8 +20,8 @@ final class LoginCoordinator {
 
     func start() {
         let loginVC = LoginViewController.instantiate(from: .main)
-        loginVC.onLogin = { (userId) in
-            
+        loginVC.onLogin = { [weak self] (userId) in
+            self?.showPosts?(userId)
         }
         navigationController.setViewControllers([loginVC], animated: false)
     }

@@ -22,6 +22,7 @@
 		29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */; };
 		29947B022AB09DFC00D70800 /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29947B012AB09DFC00D70800 /* Posts.storyboard */; };
 		29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */; };
+		29CC7E452AB1E249006E2E90 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29CC7E442AB1E249006E2E90 /* PostCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCoordinator.swift; sourceTree = "<group>"; };
 		29947B012AB09DFC00D70800 /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
 		29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+App.swift"; sourceTree = "<group>"; };
+		29CC7E442AB1E249006E2E90 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				29947B012AB09DFC00D70800 /* Posts.storyboard */,
+				29CC7E442AB1E249006E2E90 /* PostCell.xib */,
 				29947AFF2AB09D6900D70800 /* PostsCoordinator.swift */,
 				29947AF92AB09D1700D70800 /* PostCell.swift */,
 				29947AFB2AB09D2600D70800 /* All Posts */,
@@ -202,6 +205,7 @@
 			files = (
 				29947B022AB09DFC00D70800 /* Posts.storyboard in Resources */,
 				290426A02AAF3423002042E7 /* LaunchScreen.storyboard in Resources */,
+				29CC7E452AB1E249006E2E90 /* PostCell.xib in Resources */,
 				2904269D2AAF3423002042E7 /* Assets.xcassets in Resources */,
 				2904269B2AAF3422002042E7 /* Main.storyboard in Resources */,
 			);
