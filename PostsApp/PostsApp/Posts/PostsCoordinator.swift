@@ -26,17 +26,8 @@ final class PostsCoordinator: Coordinator {
     func start() {
 
         let postVC = makePostListViewController()
-
-        let favouriteVC = FavouritePostsViewController.instantiate(from: .posts)
-        favouriteVC.tabBarItem.title = "Favourite Posts"
-        favouriteVC.tabBarItem.image = UIImage(systemName: "star.fill")
-
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [postVC, favouriteVC]
-
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
-        tabBarController.navigationItem.rightBarButtonItem = logoutButton
-        tabBarController.title = "My Posts"
+        let favouriteVC = makeFavouritesListController()
+        let tabBarController = makeTabBarController(with: postVC, second: favouriteVC)
 
         navigationController.setViewControllers([tabBarController], animated: true)
     }
@@ -48,6 +39,24 @@ final class PostsCoordinator: Coordinator {
         postVC.tabBarItem.title = "All Posts"
         postVC.tabBarItem.image = UIImage(systemName: "newspaper")
         return postVC
+    }
+
+    private func makeFavouritesListController() -> FavouritePostsViewController {
+        let favouriteVC = FavouritePostsViewController.instantiate(from: .posts)
+        favouriteVC.tabBarItem.title = "Favourite Posts"
+        favouriteVC.tabBarItem.image = UIImage(systemName: "star.fill")
+        return favouriteVC
+    }
+
+    private func makeTabBarController(with first: UIViewController, second: UIViewController) -> UITabBarController {
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [first, second]
+
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
+        tabBarController.navigationItem.rightBarButtonItem = logoutButton
+        tabBarController.title = "My Posts"
+
+        return tabBarController
     }
 
     @objc func logoutButtonTapped() {
