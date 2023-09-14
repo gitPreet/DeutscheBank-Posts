@@ -17,6 +17,9 @@
 		290426B32AAF5D58002042E7 /* Storyboard+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290426B22AAF5D58002042E7 /* Storyboard+App.swift */; };
 		290426B52AAF607E002042E7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290426B42AAF607E002042E7 /* AppCoordinator.swift */; };
 		293F1FBD2AB3363000736DB8 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FBC2AB3363000736DB8 /* PostListViewModel.swift */; };
+		293F1FBF2AB337F500736DB8 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FBE2AB337F500736DB8 /* CoreDataStore.swift */; };
+		293F1FC12AB3382F00736DB8 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FC02AB3382F00736DB8 /* CoreDataHelpers.swift */; };
+		293F1FC32AB3396B00736DB8 /* URLSessionHTTPClientAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FC22AB3396B00736DB8 /* URLSessionHTTPClientAdapter.swift */; };
 		29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF72AB09CF300D70800 /* PostsListViewController.swift */; };
 		29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF92AB09D1700D70800 /* PostCell.swift */; };
 		29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */; };
@@ -58,6 +61,9 @@
 		290426B22AAF5D58002042E7 /* Storyboard+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+App.swift"; sourceTree = "<group>"; };
 		290426B42AAF607E002042E7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		293F1FBC2AB3363000736DB8 /* PostListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		293F1FBE2AB337F500736DB8 /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		293F1FC02AB3382F00736DB8 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		293F1FC22AB3396B00736DB8 /* URLSessionHTTPClientAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientAdapter.swift; sourceTree = "<group>"; };
 		29947AF72AB09CF300D70800 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
 		29947AF92AB09D1700D70800 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostsViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			children = (
 				290426B22AAF5D58002042E7 /* Storyboard+App.swift */,
 				29947B032AB0AFD700D70800 /* UITableViewCell+App.swift */,
+				293F1FC02AB3382F00736DB8 /* CoreDataHelpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				29FAABB72AB1E96E006C6498 /* URLSessionHTTPClient.swift */,
+				293F1FBE2AB337F500736DB8 /* CoreDataStore.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				29FAABC42AB209AE006C6498 /* UserServiceAdapter.swift */,
+				293F1FC22AB3396B00736DB8 /* URLSessionHTTPClientAdapter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -277,10 +286,12 @@
 				293F1FBD2AB3363000736DB8 /* PostListViewModel.swift in Sources */,
 				29FAABC12AB1F159006C6498 /* PostItemViewModel.swift in Sources */,
 				290426B52AAF607E002042E7 /* AppCoordinator.swift in Sources */,
+				293F1FC32AB3396B00736DB8 /* URLSessionHTTPClientAdapter.swift in Sources */,
 				290426AD2AAF3A8F002042E7 /* LoginViewController.swift in Sources */,
 				290426A92AAF3A63002042E7 /* LoginCoordinator.swift in Sources */,
 				290426942AAF3422002042E7 /* AppDelegate.swift in Sources */,
 				29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */,
+				293F1FC12AB3382F00736DB8 /* CoreDataHelpers.swift in Sources */,
 				290426962AAF3422002042E7 /* SceneDelegate.swift in Sources */,
 				29FAABC52AB209AE006C6498 /* UserServiceAdapter.swift in Sources */,
 				29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */,
@@ -288,6 +299,7 @@
 				29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */,
 				29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */,
 				29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */,
+				293F1FBF2AB337F500736DB8 /* CoreDataStore.swift in Sources */,
 				29FAABB82AB1E96E006C6498 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
