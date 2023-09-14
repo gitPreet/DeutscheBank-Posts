@@ -12,7 +12,7 @@ public enum FavouritePostResult {
     case failure(Error)
 }
 
-protocol FavouritePostService {
+public protocol FavouritePostService {
 
     func favouriteUserPost(post: UserPost, completion: @escaping (Error?) -> Void)
 

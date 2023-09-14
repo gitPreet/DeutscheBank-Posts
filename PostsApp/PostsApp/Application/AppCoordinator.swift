@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import UserPosts
+import CoreData
 
 public protocol Coordinator: AnyObject {
     func start()
@@ -52,11 +53,18 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator {
 
     private func makePostsCoordinator(userId: Int) -> PostsCoordinator {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-        let remotePostsLoader = RemotePostsLoader(client: URLSessionHTTPClient(), url: url)
+        let remoteUrl = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+        let localStoreURL = NSPersistentContainer
+            .defaultDirectoryURL()
+            .appendingPathComponent("UserPostsStore.sqlite")
+
+        let remotePostsLoader = RemotePostsLoader(client: URLSessionHTTPClient(), url: remoteUrl)
+        let localPostsService = LocalFavouritePostService(store: try! CoreDataStore(storeURL: localStoreURL))
+
         let postsCoordinator = PostsCoordinator(navigationController: navigationController,
                                                 postsLoader: remotePostsLoader,
-                                                userService: UserServiceAdapter(userId: userId))
+                                                userService: UserServiceAdapter(userId: userId),
+                                                favouriteService: localPostsService)
         postsCoordinator.showLoginScreen = { [weak self, weak postsCoordinator] in
             self?.showLoginScreen()
             self?.remove(coordinator: postsCoordinator!)

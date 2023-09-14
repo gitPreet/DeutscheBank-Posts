@@ -12,13 +12,15 @@ final class PostListViewModel {
 
     let postsLoader: UserPostsLoader
     let userService: UserService
+    let favouriteService: FavouritePostService
 
     var onFetch: (([PostItemViewModel]) -> Void)?
     var onError: ((Error) -> ())?
 
-    init(postsLoader: UserPostsLoader, userService: UserService) {
+    init(postsLoader: UserPostsLoader, userService: UserService, favouriteService: FavouritePostService) {
         self.postsLoader = postsLoader
         self.userService = userService
+        self.favouriteService = favouriteService
     }
 
     func fetchAllPosts() {
@@ -42,6 +44,8 @@ final class PostListViewModel {
     }
 
     private func favourite(post: UserPost) {
-       print("Favourite post")
+        self.favouriteService.favouriteUserPost(post: post) { error in
+            print("Completed favourite with error = \(error?.localizedDescription)")
+        }
     }
 }

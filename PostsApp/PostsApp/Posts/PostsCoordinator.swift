@@ -14,13 +14,18 @@ final class PostsCoordinator: Coordinator {
     let navigationController: UINavigationController
     let postsLoader: UserPostsLoader
     let userService: UserService
+    let favouriteService: FavouritePostService
 
     var showLoginScreen: (() -> Void)?
 
-    init(navigationController: UINavigationController, postsLoader: UserPostsLoader, userService: UserService) {
+    init(navigationController: UINavigationController,
+         postsLoader: UserPostsLoader,
+         userService: UserService,
+         favouriteService: FavouritePostService) {
         self.navigationController = navigationController
         self.postsLoader = postsLoader
         self.userService = userService
+        self.favouriteService = favouriteService
     }
 
     func start() {
@@ -34,7 +39,9 @@ final class PostsCoordinator: Coordinator {
 
     private func makePostListViewController() -> PostsListViewController {
         let postVC = PostsListViewController.instantiate(from: .posts)
-        let postListVM = PostListViewModel(postsLoader: postsLoader, userService: userService)
+        let postListVM = PostListViewModel(postsLoader: postsLoader,
+                                           userService: userService,
+                                           favouriteService: favouriteService)
         postVC.viewModel = postListVM
         postVC.tabBarItem.title = "All Posts"
         postVC.tabBarItem.image = UIImage(systemName: "newspaper")

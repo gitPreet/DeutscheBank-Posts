@@ -10,7 +10,7 @@ import CoreData
 
 public class CoreDataStore {
 
-    private static let modelName = "PostStore"
+    private static let modelName = "UserPostsStore"
     private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataStore.self))
 
     private let container: NSPersistentContainer
