@@ -10,9 +10,9 @@ import UIKit
 class PostsListViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: PostsViewModel?
+    var viewModel: PostListViewModel?
 
-    private var posts: [PostListViewModel] = [] {
+    private var postItemViewModel: [PostItemViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -36,7 +36,7 @@ class PostsListViewController: UIViewController, Storyboarded {
 
     private func bindViewModel() {
         viewModel?.onFetch = { [weak self] (posts) in
-            self?.posts = posts
+            self?.postItemViewModel = posts
         }
 
         viewModel?.onError = { (error) in
@@ -52,14 +52,14 @@ class PostsListViewController: UIViewController, Storyboarded {
 extension PostsListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return postItemViewModel.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
-        let post = posts[indexPath.row]
-        cell.titleLabel.text = post.titleText
-        cell.descriptionLabel.text = post.bodyText
+        let itemViewModel = postItemViewModel[indexPath.row]
+        cell.titleLabel.text = itemViewModel.titleText
+        cell.descriptionLabel.text = itemViewModel.bodyText
         return cell
     }
 }

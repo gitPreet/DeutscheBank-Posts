@@ -34,8 +34,8 @@ final class PostsCoordinator: Coordinator {
 
     private func makePostListViewController() -> PostsListViewController {
         let postVC = PostsListViewController.instantiate(from: .posts)
-        let postVM = PostsViewModel(postsLoader: postsLoader, userService: userService)
-        postVC.viewModel = postVM
+        let postListVM = PostListViewModel(postsLoader: postsLoader, userService: userService)
+        postVC.viewModel = postListVM
         postVC.tabBarItem.title = "All Posts"
         postVC.tabBarItem.image = UIImage(systemName: "newspaper")
         return postVC

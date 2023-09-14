@@ -25,10 +25,6 @@ class LoginViewController: UIViewController, Storyboarded {
             onLogin?(userId)
         }
     }
-
-    deinit {
-        print("Login VC deinit")
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
