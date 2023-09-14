@@ -58,8 +58,10 @@ extension PostsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
         let itemViewModel = postItemViewModel[indexPath.row]
-        cell.titleLabel.text = itemViewModel.titleText
-        cell.descriptionLabel.text = itemViewModel.bodyText
+        let cellViewData = PostCell.ViewData(titleText: itemViewModel.titleText,
+                                             bodyText: itemViewModel.bodyText,
+                                             isFavourited: false)
+        cell.viewData = cellViewData
         cell.onFavourite = {
             itemViewModel.onFavourite()
         }

@@ -62,9 +62,10 @@ extension FavouritePostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
         let itemViewModel = favPostItemViewModel[indexPath.row]
-        cell.titleLabel.text = itemViewModel.titleText
-        cell.descriptionLabel.text = itemViewModel.bodyText
-        cell.favouriteButton.isHidden = true
+        let cellViewData = PostCell.ViewData(titleText: itemViewModel.titleText,
+                                             bodyText: itemViewModel.bodyText,
+                                             isFavourited: true)
+        cell.viewData = cellViewData
         return cell
     }
 
