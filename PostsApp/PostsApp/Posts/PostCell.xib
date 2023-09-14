@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="94" id="S3R-SK-Mcq" customClass="PostCell" customModule="PostsApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="94" id="S3R-SK-Mcq" customClass="PostCell" customModule="PostsApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="392" height="86"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S3R-SK-Mcq" id="8W4-CX-RVu">
@@ -54,6 +54,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="VtN-dj-bz3" id="MST-F7-0rv"/>
+                <outlet property="favouriteButton" destination="O3C-9v-JQ3" id="fG9-7P-28C"/>
                 <outlet property="titleLabel" destination="zKc-Zq-Gk5" id="J5p-ws-tFK"/>
             </connections>
             <point key="canvasLocation" x="-148.09160305343511" y="-138.73239436619718"/>

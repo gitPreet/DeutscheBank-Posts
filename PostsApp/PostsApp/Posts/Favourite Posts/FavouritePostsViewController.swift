@@ -24,6 +24,10 @@ class FavouritePostsViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupTableView()
         bindViewModel()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadFavouritePosts()
     }
 
@@ -60,6 +64,7 @@ extension FavouritePostsViewController: UITableViewDataSource {
         let itemViewModel = favPostItemViewModel[indexPath.row]
         cell.titleLabel.text = itemViewModel.titleText
         cell.descriptionLabel.text = itemViewModel.bodyText
+        cell.favouriteButton.isHidden = true
         return cell
     }
 
