@@ -10,7 +10,6 @@ import UIKit
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var favouriteButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
 
     var onFavourite: (() -> Void)?

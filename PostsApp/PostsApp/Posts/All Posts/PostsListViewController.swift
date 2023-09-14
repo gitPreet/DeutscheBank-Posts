@@ -60,6 +60,9 @@ extension PostsListViewController: UITableViewDataSource {
         let itemViewModel = postItemViewModel[indexPath.row]
         cell.titleLabel.text = itemViewModel.titleText
         cell.descriptionLabel.text = itemViewModel.bodyText
+        cell.onFavourite = {
+            itemViewModel.onFavourite()
+        }
         return cell
     }
 }

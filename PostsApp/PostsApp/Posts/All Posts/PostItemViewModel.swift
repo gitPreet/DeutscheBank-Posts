@@ -10,4 +10,5 @@ import Foundation
 struct PostItemViewModel {
     let titleText: String
     let bodyText: String
+    let onFavourite: (() -> ())
 }

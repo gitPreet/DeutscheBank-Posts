@@ -25,8 +25,13 @@ final class PostListViewModel {
         postsLoader.fetchUserPosts(userId: userService.userId) { [weak self] result in
             switch result {
             case .success(let posts):
-                let viewModels = posts.map {
-                    PostItemViewModel(titleText: $0.title, bodyText: $0.body)
+                var viewModels = [PostItemViewModel]()
+                for post in posts {
+                    let itemViewModel = PostItemViewModel(titleText: post.title,
+                                                          bodyText: post.body) {
+                        self?.favourite(post: post)
+                    }
+                    viewModels.append(itemViewModel)
                 }
                 self?.onFetch?(viewModels)
 
@@ -34,5 +39,9 @@ final class PostListViewModel {
                 self?.onError?(error)
             }
         }
+    }
+
+    private func favourite(post: UserPost) {
+       print("Favourite post")
     }
 }
