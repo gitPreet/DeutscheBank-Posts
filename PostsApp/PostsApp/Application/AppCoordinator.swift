@@ -59,12 +59,14 @@ extension AppCoordinator {
             .appendingPathComponent("UserPostsStore.sqlite")
 
         let remotePostsLoader = RemotePostsLoader(client: URLSessionHTTPClient(), url: remoteUrl)
-        let localPostsService = LocalFavouritePostService(store: try! CoreDataStore(storeURL: localStoreURL))
+        let coreDataStore = try! CoreDataStore(storeURL: localStoreURL)
+        let localPostsService = LocalFavouritePostService(store: coreDataStore)
 
         let postsCoordinator = PostsCoordinator(navigationController: navigationController,
                                                 postsLoader: remotePostsLoader,
                                                 userService: UserServiceAdapter(userId: userId),
-                                                favouriteService: localPostsService)
+                                                favouriteService: localPostsService,
+                                                logoutService: coreDataStore)
         postsCoordinator.showLoginScreen = { [weak self, weak postsCoordinator] in
             self?.showLoginScreen()
             self?.remove(coordinator: postsCoordinator!)

@@ -28,7 +28,7 @@ extension CoreDataStore: UserPostStore {
     }
     
     public func delete(post: LocalUserPost, completion: @escaping DeletionCompletion) {
-
+        // TBD
     }
     
     public func retrieveFavouritePosts(completion: @escaping RetrievalCompletion) {
@@ -51,5 +51,12 @@ extension CoreDataStore: UserPostStore {
                 completion(.failure(error))
             }
         }
+    }
+}
+
+extension CoreDataStore: LogoutService {
+
+    func clearStoredData() {
+        self.clearCoreDataStore()
     }
 }

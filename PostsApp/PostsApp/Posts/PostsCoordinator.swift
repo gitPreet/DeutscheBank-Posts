@@ -15,17 +15,20 @@ final class PostsCoordinator: Coordinator {
     let postsLoader: UserPostsLoader
     let userService: UserService
     let favouriteService: FavouritePostService
+    let logoutService: LogoutService
 
     var showLoginScreen: (() -> Void)?
 
     init(navigationController: UINavigationController,
          postsLoader: UserPostsLoader,
          userService: UserService,
-         favouriteService: FavouritePostService) {
+         favouriteService: FavouritePostService,
+         logoutService: LogoutService) {
         self.navigationController = navigationController
         self.postsLoader = postsLoader
         self.userService = userService
         self.favouriteService = favouriteService
+        self.logoutService = logoutService
     }
 
     func start() {
@@ -69,6 +72,7 @@ final class PostsCoordinator: Coordinator {
     }
 
     @objc func logoutButtonTapped() {
+        logoutService.clearStoredData()
         showLoginScreen?()
     }
 }

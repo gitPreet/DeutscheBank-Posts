@@ -24,6 +24,7 @@
 		293F1FCF2AB3523300736DB8 /* CoreDataStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FCE2AB3523300736DB8 /* CoreDataStoreAdapter.swift */; };
 		293F1FD12AB357C600736DB8 /* FavouritePostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FD02AB357C600736DB8 /* FavouritePostsViewModel.swift */; };
 		293F1FD32AB3593C00736DB8 /* FavouritePostItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FD22AB3593C00736DB8 /* FavouritePostItemViewModel.swift */; };
+		293F1FD72AB3629F00736DB8 /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F1FD62AB3629F00736DB8 /* LogoutService.swift */; };
 		29947AF82AB09CF300D70800 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF72AB09CF300D70800 /* PostsListViewController.swift */; };
 		29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AF92AB09D1700D70800 /* PostCell.swift */; };
 		29947AFE2AB09D5200D70800 /* FavouritePostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */; };
@@ -72,6 +73,7 @@
 		293F1FCE2AB3523300736DB8 /* CoreDataStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStoreAdapter.swift; sourceTree = "<group>"; };
 		293F1FD02AB357C600736DB8 /* FavouritePostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostsViewModel.swift; sourceTree = "<group>"; };
 		293F1FD22AB3593C00736DB8 /* FavouritePostItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostItemViewModel.swift; sourceTree = "<group>"; };
+		293F1FD62AB3629F00736DB8 /* LogoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
 		29947AF72AB09CF300D70800 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
 		29947AF92AB09D1700D70800 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		29947AFD2AB09D5200D70800 /* FavouritePostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePostsViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				290426A82AAF3A63002042E7 /* LoginCoordinator.swift */,
 				290426AC2AAF3A8F002042E7 /* LoginViewController.swift */,
+				293F1FD62AB3629F00736DB8 /* LogoutService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				293F1FD12AB357C600736DB8 /* FavouritePostsViewModel.swift in Sources */,
 				293F1FCF2AB3523300736DB8 /* CoreDataStoreAdapter.swift in Sources */,
 				29947B002AB09D6900D70800 /* PostsCoordinator.swift in Sources */,
+				293F1FD72AB3629F00736DB8 /* LogoutService.swift in Sources */,
 				290426B32AAF5D58002042E7 /* Storyboard+App.swift in Sources */,
 				29947AFA2AB09D1700D70800 /* PostCell.swift in Sources */,
 				29947B042AB0AFD700D70800 /* UITableViewCell+App.swift in Sources */,

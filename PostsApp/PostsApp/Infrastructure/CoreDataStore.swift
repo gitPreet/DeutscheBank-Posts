@@ -47,6 +47,18 @@ public class CoreDataStore {
          }
      }
 
+    func clearCoreDataStore() {
+        let storeCoordinator = self.container.persistentStoreCoordinator
+        if let store = storeCoordinator.persistentStores.first {
+        let storeURL = storeCoordinator.url(for: store)
+            do {
+                try storeCoordinator.destroyPersistentStore(at: storeURL, ofType: NSSQLiteStoreType, options: nil)
+            } catch {
+                print("Error clearing CoreData store: \(error)")
+            }
+        }
+    }
+
      deinit {
          cleanUpReferencesToPersistentStores()
      }
