@@ -45,7 +45,7 @@ final class PostListViewModel {
 
     private func favourite(post: UserPost) {
         self.favouriteService.favouriteUserPost(post: post) { error in
-            print("Completed favourite with error = \(error?.localizedDescription)")
+            print("Completed favourite post with error = \(String(describing: error?.localizedDescription))")
         }
     }
 }

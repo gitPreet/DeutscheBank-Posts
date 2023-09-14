@@ -50,6 +50,8 @@ final class PostsCoordinator: Coordinator {
 
     private func makeFavouritesListController() -> FavouritePostsViewController {
         let favouriteVC = FavouritePostsViewController.instantiate(from: .posts)
+        let favPostListVM = FavouritePostListViewModel(favouriteService: favouriteService)
+        favouriteVC.viewModel = favPostListVM
         favouriteVC.tabBarItem.title = "Favourite Posts"
         favouriteVC.tabBarItem.image = UIImage(systemName: "star.fill")
         return favouriteVC
