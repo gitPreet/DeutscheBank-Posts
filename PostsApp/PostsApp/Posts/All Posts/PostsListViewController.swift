@@ -10,15 +10,7 @@ import UIKit
 class PostsListViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: PostListViewModel?
-
-    private var postItemViewModel: [PostItemViewModel] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    var viewModel: PostListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +27,24 @@ class PostsListViewController: UIViewController, Storyboarded {
     }
 
     private func bindViewModel() {
-        viewModel?.onFetch = { [weak self] (posts) in
-            self?.postItemViewModel = posts
+        viewModel?.onFetch = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+
+        viewModel.onEmptyList = {
+            // show Empty list message
         }
 
         viewModel?.onError = { (error) in
             // showError
+        }
+
+        viewModel.refreshData = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
 
@@ -52,19 +56,13 @@ class PostsListViewController: UIViewController, Storyboarded {
 extension PostsListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postItemViewModel.count
+        return viewModel.itemViewModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
-        let itemViewModel = postItemViewModel[indexPath.row]
-        let cellViewData = PostCell.ViewData(titleText: itemViewModel.titleText,
-                                             bodyText: itemViewModel.bodyText,
-                                             isFavourited: false)
-        cell.viewData = cellViewData
-        cell.onFavourite = {
-            itemViewModel.onFavourite()
-        }
+        let itemViewModel = viewModel.itemViewModels[indexPath.row]
+        cell.updateUI(viewModel: itemViewModel)
         return cell
     }
 }

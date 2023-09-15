@@ -7,25 +7,22 @@
 
 import UIKit
 
+protocol ItemViewModel {
+    var titleText: String { get }
+    var bodyText: String { get }
+    var isFavourited: Bool { get }
+    var onFavourite: (() -> Void)? { get }
+}
+
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIButton!
 
-    struct ViewData {
-        let titleText: String
-        let bodyText: String
-        let isFavourited: Bool
-    }
-    
     var onFavourite: (() -> Void)?
 
-    var viewData: ViewData? {
-        didSet {
-            render()
-        }
-    }
+    private var itemViewModel: ItemViewModel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,24 +34,40 @@ class PostCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        viewData = ViewData(titleText: "", bodyText: "", isFavourited: false)
+        titleLabel.text = ""
+        descriptionLabel.text = ""
+        favouriteButton.makeNormalFavouriteButton()
     }
 
-    private func render() {
-        guard let viewData = viewData else { return }
+    func updateUI(viewModel: ItemViewModel) {
+        self.itemViewModel = viewModel
 
-        titleLabel.text = viewData.titleText
-        descriptionLabel.text = viewData.bodyText
-        if viewData.isFavourited {
-            let image = UIImage(systemName: "star.fill")
-            favouriteButton.setImage(image, for: .normal)
+        titleLabel.text = viewModel.titleText
+        descriptionLabel.text = viewModel.bodyText
+
+        if viewModel.isFavourited {
+            favouriteButton.makeHighlightedFavouriteButton()
         } else {
-            let image = UIImage(systemName: "star")
-            favouriteButton.setImage(image, for: .normal)
+            favouriteButton.makeNormalFavouriteButton()
         }
     }
 
     @IBAction func favouriteButtonTapped(_ sender: Any) {
-        onFavourite?()
+        itemViewModel.onFavourite?()
+    }
+}
+
+private extension UIButton {
+
+    func makeHighlightedFavouriteButton() {
+        let image = UIImage(systemName: "star.fill")
+        self.setImage(image, for: .normal)
+        self.isUserInteractionEnabled = false
+    }
+
+    func makeNormalFavouriteButton() {
+        let image = UIImage(systemName: "star")
+        self.setImage(image, for: .normal)
+        self.isUserInteractionEnabled = true
     }
 }

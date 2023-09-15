@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct PostItemViewModel {
+struct PostItemViewModel: ItemViewModel {
     let titleText: String
     let bodyText: String
     var isFavourited: Bool = false
-    let onFavourite: (() -> ())
+    let onFavourite: (() -> ())?
 }

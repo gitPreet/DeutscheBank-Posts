@@ -10,15 +10,7 @@ import UIKit
 class FavouritePostsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: FavouritePostListViewModel?
-
-    private var favPostItemViewModel: [FavouritePostItemViewModel] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    var viewModel: FavouritePostListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +31,10 @@ class FavouritePostsViewController: UIViewController, Storyboarded {
     }
 
     private func bindViewModel() {
-        viewModel?.onFetch = { [weak self] (posts) in
-            self?.favPostItemViewModel = posts
+        viewModel?.onFetch = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
 
         viewModel?.onError = { (error) in
@@ -56,16 +50,13 @@ class FavouritePostsViewController: UIViewController, Storyboarded {
 extension FavouritePostsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favPostItemViewModel.count
+        return viewModel.favItemViewModels.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
-        let itemViewModel = favPostItemViewModel[indexPath.row]
-        let cellViewData = PostCell.ViewData(titleText: itemViewModel.titleText,
-                                             bodyText: itemViewModel.bodyText,
-                                             isFavourited: true)
-        cell.viewData = cellViewData
+        let favItemViewModel = viewModel.favItemViewModels[indexPath.row]
+        cell.updateUI(viewModel: favItemViewModel)
         return cell
     }
 
