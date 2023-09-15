@@ -15,8 +15,10 @@ class FavouritePostListViewModel {
     var onFetch: (([FavouritePostItemViewModel]) -> Void)?
     var onError: ((Error) -> ())?
 
-    init(favouriteService: FavouritePostService) {
-        self.favouriteService = favouriteService
+    typealias FavouritePostListViewModelDependencies = HasFavouriteService
+
+    init(dependencies: FavouritePostListViewModelDependencies) {
+        self.favouriteService = dependencies.favouriteService
     }
 
     func loadFavouritePosts() {

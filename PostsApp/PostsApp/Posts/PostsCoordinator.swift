@@ -11,28 +11,24 @@ import UserPosts
 
 final class PostsCoordinator: Coordinator {
 
+    struct Dependencies: PostModuleDependencies {
+        var postsLoader: UserPostsLoader
+        var userService: UserService
+        var favouriteService: FavouritePostService
+        var logoutService: LogoutService
+    }
+
     let navigationController: UINavigationController
-    let postsLoader: UserPostsLoader
-    let userService: UserService
-    let favouriteService: FavouritePostService
-    let logoutService: LogoutService
+    let diContainer: PostsDIContainer
+
+    init(navigationController: UINavigationController, dependencies: Dependencies) {
+        self.navigationController = navigationController
+        self.diContainer = PostsDIContainer(dependencies: dependencies)
+    }
 
     var showLoginScreen: (() -> Void)?
 
-    init(navigationController: UINavigationController,
-         postsLoader: UserPostsLoader,
-         userService: UserService,
-         favouriteService: FavouritePostService,
-         logoutService: LogoutService) {
-        self.navigationController = navigationController
-        self.postsLoader = postsLoader
-        self.userService = userService
-        self.favouriteService = favouriteService
-        self.logoutService = logoutService
-    }
-
     func start() {
-
         let postVC = makePostListViewController()
         let favouriteVC = makeFavouritesListController()
         let tabBarController = makeTabBarController(with: postVC, second: favouriteVC)
@@ -42,9 +38,7 @@ final class PostsCoordinator: Coordinator {
 
     private func makePostListViewController() -> PostsListViewController {
         let postVC = PostsListViewController.instantiate(from: .posts)
-        let postListVM = PostListViewModel(postsLoader: postsLoader,
-                                           userService: userService,
-                                           favouriteService: favouriteService)
+        let postListVM = PostListViewModel(dependencies: diContainer.dependencies)
         postVC.viewModel = postListVM
         postVC.tabBarItem.title = "All Posts"
         postVC.tabBarItem.image = UIImage(systemName: "newspaper")
@@ -53,7 +47,7 @@ final class PostsCoordinator: Coordinator {
 
     private func makeFavouritesListController() -> FavouritePostsViewController {
         let favouriteVC = FavouritePostsViewController.instantiate(from: .posts)
-        let favPostListVM = FavouritePostListViewModel(favouriteService: favouriteService)
+        let favPostListVM = FavouritePostListViewModel(dependencies: diContainer.dependencies)
         favouriteVC.viewModel = favPostListVM
         favouriteVC.tabBarItem.title = "Favourite Posts"
         favouriteVC.tabBarItem.image = UIImage(systemName: "star.fill")
@@ -72,7 +66,7 @@ final class PostsCoordinator: Coordinator {
     }
 
     @objc func logoutButtonTapped() {
-        logoutService.clearStoredData()
+        diContainer.dependencies.logoutService.clearStoredData()
         showLoginScreen?()
     }
 }

@@ -62,11 +62,14 @@ extension AppCoordinator {
         let coreDataStore = try! CoreDataStore(storeURL: localStoreURL)
         let localPostsService = LocalFavouritePostService(store: coreDataStore)
 
+        let postsModuleDependencies = PostsCoordinator.Dependencies(postsLoader: remotePostsLoader,
+                                                                    userService: UserServiceAdapter(userId: userId),
+                                                                    favouriteService: localPostsService,
+                                                                    logoutService: coreDataStore)
+
         let postsCoordinator = PostsCoordinator(navigationController: navigationController,
-                                                postsLoader: remotePostsLoader,
-                                                userService: UserServiceAdapter(userId: userId),
-                                                favouriteService: localPostsService,
-                                                logoutService: coreDataStore)
+                                                dependencies: postsModuleDependencies)
+
         postsCoordinator.showLoginScreen = { [weak self, weak postsCoordinator] in
             self?.showLoginScreen()
             self?.remove(coordinator: postsCoordinator!)

@@ -14,13 +14,15 @@ final class PostListViewModel {
     let userService: UserService
     let favouriteService: FavouritePostService
 
+    typealias PostListViewModelDependencies = HasUserPostsLoader & HasUserService & HasFavouriteService
+
     var onFetch: (([PostItemViewModel]) -> Void)?
     var onError: ((Error) -> ())?
 
-    init(postsLoader: UserPostsLoader, userService: UserService, favouriteService: FavouritePostService) {
-        self.postsLoader = postsLoader
-        self.userService = userService
-        self.favouriteService = favouriteService
+    init(dependencies: PostListViewModelDependencies) {
+        self.postsLoader = dependencies.postsLoader
+        self.userService = dependencies.userService
+        self.favouriteService = dependencies.favouriteService
     }
 
     func fetchAllPosts() {
