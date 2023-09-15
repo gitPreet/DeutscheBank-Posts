@@ -10,7 +10,7 @@ import UIKit
 class PostsListViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
-    var viewModel: PostListViewModel!
+    var viewModel: PostListViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +56,12 @@ class PostsListViewController: UIViewController, Storyboarded {
 extension PostsListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.itemViewModels.count
+        return viewModel.itemCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseIdentifier) as! PostCell
-        let itemViewModel = viewModel.itemViewModels[indexPath.row]
+        let itemViewModel = viewModel.item(at: indexPath.row)
         cell.updateUI(viewModel: itemViewModel)
         return cell
     }

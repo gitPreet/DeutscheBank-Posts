@@ -8,7 +8,19 @@
 import Foundation
 import UserPosts
 
-final class PostListViewModel {
+protocol PostListViewModelType {
+
+    var onFetch: (() -> Void)? { get set }
+    var refreshData: (() -> Void)? { get set }
+    var onEmptyList: (() -> ())? { get set }
+    var onError: ((Error) -> ())? { get set }
+    var itemCount: Int { get }
+
+    func item(at index: Int) -> PostItemViewModel
+    func fetchAllPosts()
+}
+
+final class PostListViewModel: PostListViewModelType {
 
     typealias PostListViewModelDependencies = HasUserPostsLoader & HasUserService & HasFavouriteService
 
@@ -22,13 +34,21 @@ final class PostListViewModel {
         self.favouriteService = dependencies.favouriteService
     }
 
+    private var postItems = [UserPost]()
+    private var itemViewModels = [PostItemViewModel]()
+
     var onFetch: (() -> Void)?
     var refreshData: (() -> Void)?
     var onEmptyList: (() -> ())?
     var onError: ((Error) -> ())?
 
-    private var postItems = [UserPost]()
-    var itemViewModels = [PostItemViewModel]()
+    var itemCount: Int {
+        return itemViewModels.count
+    }
+    
+    func item(at index: Int) -> PostItemViewModel {
+        return itemViewModels[index]
+    }
 
     func fetchAllPosts() {
         postsLoader.fetchUserPosts(userId: userService.userId) { [weak self] result in

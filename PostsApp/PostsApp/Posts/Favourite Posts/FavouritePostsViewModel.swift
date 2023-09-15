@@ -8,7 +8,16 @@
 import Foundation
 import UserPosts
 
-class FavouritePostListViewModel {
+protocol FavouritePostListViewModelType {
+    var onFetch: (() -> Void)? { get set }
+    var onError: ((Error) -> ())? { get set }
+    var favItemCount: Int { get }
+
+    func favPost(at index: Int) -> FavouritePostItemViewModel
+    func loadFavouritePosts()
+}
+
+class FavouritePostListViewModel: FavouritePostListViewModelType {
 
     typealias FavouritePostListViewModelDependencies = HasFavouriteService
 
@@ -18,11 +27,19 @@ class FavouritePostListViewModel {
         self.favouriteService = dependencies.favouriteService
     }
 
+    private var favPostItems = [UserPost]()
+    private var favItemViewModels = [FavouritePostItemViewModel]()
+
     var onFetch: (() -> Void)?
     var onError: ((Error) -> ())?
 
-    private var favPostItems = [UserPost]()
-    var favItemViewModels = [FavouritePostItemViewModel]()
+    var favItemCount: Int {
+        return favPostItems.count
+    }
+
+    func favPost(at index: Int) -> FavouritePostItemViewModel {
+        return favItemViewModels[index]
+    }
 
     func loadFavouritePosts() {
         favouriteService.getAllFavouritePosts { [weak self] result in
